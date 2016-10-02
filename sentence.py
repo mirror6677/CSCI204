@@ -25,7 +25,7 @@ class Sentence:
         for char in self.sentence:
             if char != ' ':
                 word += char
-            else:
+            elif word != '':
                 wordList.append(word)
                 word = ''
 

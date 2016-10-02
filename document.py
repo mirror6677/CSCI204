@@ -15,6 +15,7 @@ class Document:
 
         self.filename = filename
         self.__title = None
+        self.__author = None
 
         self.__wordList = []
 
@@ -91,9 +92,8 @@ class Document:
                 isTitle = False
                 break
 
-        if isTitle:
-            self.__title = self.__sentence[0]
-            self.__sentence = self.__sentence[1:]
+        if 'Gutenberg' in self.__sentence[0].sentence:
+            self.__title, self.__author = docStream.gutenberg(self.__sentence)
 
     def getWordCount(self):
         """

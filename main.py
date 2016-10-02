@@ -24,7 +24,10 @@ def main():
 
     print('\n\n')
     graph = commandLinePloter.CommandLinePloter()
-    graph.twoDScatter(top10Freq)
+    graph.twoDBar(top10Freq)
+
+    docS = documentStream.DocumentStream(filename)
+    docS.writeWhole(doc)
 
 
 if __name__ == "__main__":
