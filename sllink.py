@@ -1,32 +1,41 @@
+import sStack
+
 class Node:
     next = None
-    data = None
+    data = []
 
 class SLink:
-    head = None
-    elist = []
-    size = 0
-
     def __init__(self, size=0):
-        #?Come back and optimize startup
-        pass
+        self.head = None
+        self.pStack = sStack()
+
+        for i in range(size):
+            sStack.push(None)
+
+        self.size = 0
 
     def __len__(self):
         return self.size
 
 
-    def add(self, value):
+    def add(self, valueList):
         #Adds a node to the head
-        if(len(self.elist) > 0):
-            newNode = self.elist.pop()
-            newNode.data = value
+        if(self.pStack.head != None):
+            newNode = self.pStack.pop()
+
+            for value in valueList:
+                newNode.data.append(value)
+
             newNode.next = self.head
             self.head = newNode
             self.size += 1
         else:
             newNode = Node()
             newNode.next = self.head
-            newNode.data = value
+
+            for value in valueList:
+                newNode.data.append(value)
+
             self.head = newNode
             self.size += 1
 
@@ -34,7 +43,7 @@ class SLink:
         #Removes a node from the list
         prunner = None
         runner = self.head
-        while runner != None and runner.data != value:
+        while runner != None and runner.data[0] != value:
             prunner = runner
             runner = runner.next
 
@@ -42,15 +51,17 @@ class SLink:
             #It was not found, so no work to do
             return -1
 
-        #Remove node
         if runner == self.head:
             #head case
             self.head = runner.next
-            del runner
         else:
             #nonhead case
             prunner.next = runner.next
-            del runner
+
+        #Empty node and push onto the stack
+        runner.data = []
+        runner.next = None
+        pStack.push(runner)
 
     def __iter__(self):
         return SLinkIterator(self.head)
