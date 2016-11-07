@@ -23,7 +23,7 @@ def main():
         b = j.split()
         cList.append(b)
 
-    #print(dt.eval(cList))
+    print(dt.eval(cList))
 
     prefix(dt.root)
     postfix(dt.root)
