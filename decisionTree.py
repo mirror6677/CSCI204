@@ -75,7 +75,6 @@ class DecisionTree:
 
         return twoDlist
 
-    def prefix(self):
 
 
 
