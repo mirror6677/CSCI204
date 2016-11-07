@@ -1,0 +1,10 @@
+JamesJoyce.AfterTheRace		1914	shortstory
+JamesJoyce.Araby		1914	shortstory
+JamesJoyce.Encounter		1914	shortstory
+JamesJoyce.Eveline		1904	shortstory
+JamesJoyce.TheBoardingHouse	1914	shortstory
+MarkTwain.ConnecticutYankee1	1889	ScienceFiction
+Poe.CaskofAmontillado		1846	Horror
+Poe.FallHouseOfUsher		1836	Horror
+Poe.MasqueofTheRedDeath		1842	Horror
+Poe.Raven			1845	poem
