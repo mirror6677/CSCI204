@@ -1,4 +1,5 @@
 import document, documentStream, sentence, commandLinePloter, basicStats
+import time
 
 def main():
     filename = input('Please enter file name: ')
@@ -10,7 +11,16 @@ def main():
     wordList = doc._Document__wordList
 
     stats = basicStats.BasicStats()
-    top10Dict = stats.topN(stats.createFreqMap(wordList), 10)
+    tic = time.time()
+    top10Dict = stats.topN(stats.createFreqMap(wordList), 50)
+    toc = time.time()
+    print('Traditional time:', toc-tic)
+
+    tic = time.time()
+    topWords, topFreq = stats.topNHeap(wordList, 50)
+    toc = time.time()
+    print('Heap sort time:', toc-tic)
+
 
     top10Freq = []
     top10Words = []
@@ -23,12 +33,17 @@ def main():
         print(word + ':' + str(top10Dict[word]), end = '  ')
 
     print('\n\n')
+
+    for i in range(len(topWords)):
+        print(topWords[i] + ': ' + str(topFreq[i]), end = '  ')
+
+    '''
     graph = commandLinePloter.CommandLinePloter()
     graph.twoDBar(top10Freq)
 
     docS = documentStream.DocumentStream(filename)
     docS.writeWhole(doc)
-
+    '''
 
 if __name__ == "__main__":
     main()
