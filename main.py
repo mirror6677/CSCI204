@@ -1,7 +1,7 @@
-import document, documentStream, sentence, commandLinePloter, basicStats
-import time
+import userGUI
 
 def main():
+    """
     filename = input('Please enter file name: ')
 
     doc = document.Document(filename)
@@ -17,7 +17,7 @@ def main():
     print('Traditional time:', toc-tic)
 
     tic = time.time()
-    topWords, topFreq = stats.topNHeap(wordList, 50)
+    topWords, topFreq = heap.topNHeap(wordList, 50)
     toc = time.time()
     print('Heap sort time:', toc-tic)
 
@@ -44,6 +44,8 @@ def main():
     docS = documentStream.DocumentStream(filename)
     docS.writeWhole(doc)
     '''
+    """
+
 
 if __name__ == "__main__":
     main()

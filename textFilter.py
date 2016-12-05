@@ -15,15 +15,15 @@ class TextFilter:
         case, strip null characters, and strip numbers.
         """
         for f in self.filterList:
-            if f == 'normalize whitespace':
+            if f == 1 or 'normalize whitespace':
                 self.normalizeWhitespace()
-            elif f == 'normalize case':
+            elif f == 2 or 'normalize case':
                 self.normalizeCase()
-            elif f == 'strip null characters':
+            elif f == 3 or 'strip null characters':
                 self.stripNull()
-            elif f == 'strip numbers':
+            elif f == 4 or 'strip numbers':
                 self.stripNumbers()
-            elif f == 'strip common words':
+            elif f == 5 or 'strip common words':
                 self.stripFile()
             else:
                 print(f + ' is not a valid filter!')
@@ -81,4 +81,4 @@ def main():
     for i in d._Document__sentence:
         print(i.sentence)
 
-main()
+#main()
