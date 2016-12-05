@@ -48,7 +48,7 @@ class SKTree:
         y = self.tree.predict(x)
         print(y)
         #Now you will have to get the values from y and move them to the targe column of data
-        for row in range(len(t)):
+        for row in range(len(x)):
             x[row][0] = y[row]
         return x
 
